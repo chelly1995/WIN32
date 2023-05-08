@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#define MAX_ADDRESS 200			// 최대 인원 200으로 가정
+
 #pragma warning(disable:4996)
 
 using namespace std;
@@ -13,45 +15,20 @@ struct Person {
 	char name[10];
 	char address[20];
 
-	struct Person* next;	// linkedlist 만들기 위해 자기참조구조체 생성
-
 };
 
-Person* head = NULL;
-
-// 필요한 만큼의 메모리만 쓸 수 있어서 링크드리스트 사용
+int Address_Num = 0;
 
 
-void link_person(Person* head, Person* person) {
+Person AddList[MAX_ADDRESS];
 
-	if (head != NULL) {						// 데이터가 들어있는 상태
-		Person* target = NULL;
-		target = head;						// 데이터 조회를 하기위해
-	
-			
-		for (int i = 0; true; i++) {
-			if (head->next == NULL) {
-				break;
-			}
-			
-				target = target->next;
-
-
-		//	target = target->next;
-		}
-		target->next = person;
-	}
-}
 
 int main()
 {
 
-	//struct Person* people = (struct Person*)malloc(sizeof(struct Person) * 200);
 
 	int num = 0;
-	int count = 0;
-	Person* first = NULL;
-	Person* current = NULL;
+	
 
 	while (1) {
 
@@ -67,63 +44,43 @@ int main()
 
 		if (num == 1) {
 
-			struct Person* current = (struct Person*)malloc(sizeof(Person));
 
 			printf("이름 : \n");
-			//scanf("%s",people[count].name);
-			scanf("%s", current->name);
+			scanf("%s",AddList[Address_Num].name);
+			
 			printf("나이 : \n");
-			//scanf("%d",&people[count].age);
-			scanf("%d", &current->age);
+			scanf("%d", &AddList[Address_Num].age);
+			
 			printf("주소 : \n");
-			//scanf("%s",people[count].address);
-			scanf("%s", current->address);
-
-
-			current->next = NULL;
-
-			if (count == 0) {
-
-				first = current;
-				//head = current;
-			}
-			else {
-
-				 link_person(first, current);
-				
-
-			}
-
+			scanf("%s",AddList[Address_Num].address);
+			
+			
+			
 			printf(" \n 주소록이 추가되었습니다. \n");
 
-			count++;
+
+			Address_Num++;
+
 		}
 		else if (num == 2) {
+			int delete_num;
+			printf("삭제할 번호를 입력해주세요 : ");
+			scanf("%d \n", &delete_num);
 
+
+			printf("%d번이 삭제되었습니다. \n");
 
 
 		}
 		else if (num == 3) {
 
-			/*
-			for(int i=0; i<count; i++)
-			printf("%d,이름:%s,나이:%d,주소:%s\n",i+1,people[i].name, people[i].age, people[i].address);
-			*/
 
 
-			Person* target = NULL;
-
-			target = head;
-
-			//current = head;
-
-			for (int i = 0; target != NULL; i++) {
-				printf("%d,이름:%s,나이:%d,주소:%s\n", i + 1, target->name, target->age, target->address);
-				
-				target = target->next;
-				//current = current->next;
+			for (int i = 0; i < Address_Num; i++) {
+			
+				printf("[%d] 이름 : %s 나이 : %d, 주소 : %s \n",i+1, AddList[i].name, AddList[i].age, AddList[i].address );
+			
 			}
-
 
 		}
 		else if (num == 4) {
