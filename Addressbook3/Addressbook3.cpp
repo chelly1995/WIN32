@@ -19,7 +19,6 @@ struct Person {
 
 int Address_Num = 0;
 
-
 Person AddList[MAX_ADDRESS];
 
 
@@ -32,12 +31,14 @@ int main()
 
 	while (1) {
 
-		printf("----------주소록--------\n");
+		printf("----------주소록----------\n");
 		printf("1. 데이터 추가\n");
 		printf("2. 데이터 삭제\n");
-		printf("3. 데이터 조회\n");
-		printf("4. 종료\n");
-		printf("-----------------------\n");
+		printf("3. 데이터 수정\n");
+		printf("4. 데이터 검색\n");
+		printf("5. 데이터 조회\n");
+		printf("6. 종료\n");
+		printf("-------------------------\n");
 		printf("번호 입력 : ");
 		scanf_s("%d", &num);
 
@@ -45,13 +46,13 @@ int main()
 		if (num == 1) {
 
 
-			printf("이름 : \n");
+			printf("이름 : ");
 			scanf("%s",AddList[Address_Num].name);
 			
-			printf("나이 : \n");
+			printf("나이 : ");
 			scanf("%d", &AddList[Address_Num].age);
 			
-			printf("주소 : \n");
+			printf("주소 : ");
 			scanf("%s",AddList[Address_Num].address);
 			
 			
@@ -72,18 +73,18 @@ int main()
 
 
 		}
-		else if (num == 3) {
+		else if (num == 5) {
 
-
+			printf("\n =============== 전체 리스트 ==============\n\n");
 
 			for (int i = 0; i < Address_Num; i++) {
-			
+				
 				printf("[%d] 이름 : %s 나이 : %d, 주소 : %s \n",i+1, AddList[i].name, AddList[i].age, AddList[i].address );
 			
 			}
-
+			printf("\n");
 		}
-		else if (num == 4) {
+		else if (num == 6) {
 
 			printf("프로그램 종료");
 
