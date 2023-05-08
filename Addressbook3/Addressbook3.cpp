@@ -66,12 +66,18 @@ int main()
 		else if (num == 2) {
 			int delete_num;
 			printf("삭제할 번호를 입력해주세요 : ");
-			scanf("%d \n", &delete_num);
+			scanf("%d \n",&delete_num);
 
+			for (int i = delete_num; i < Address_Num-1; i++)
+			{
+				AddList[i] = AddList[i + 1];
+			}
 
-			printf("%d번이 삭제되었습니다. \n");
+			
 
-
+			printf("%d번이 삭제되었습니다. \n",&delete_num);
+	
+			Address_Num--;
 		}
 		else if (num == 5) {
 
