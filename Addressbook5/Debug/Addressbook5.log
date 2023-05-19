@@ -1,0 +1,2 @@
+﻿  Person.cpp
+C:\Users\Security365\source\repos\Addressbook5\Person.cpp(62,12): error C3863: 배열 형식 'char [20]'은(는) 할당할 수 없습니다.
